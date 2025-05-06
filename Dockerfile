@@ -42,6 +42,7 @@ ENV PATH="/opt/arm-gnu-toolchain/bin:$PATH"
 RUN git clone https://github.com/emscripten-core/emsdk.git /opt/emsdk --depth 1 && \
     cd /opt/emsdk && \
     ./emsdk install ${EM_VERSION} && \
+    ./emsdk activate ${EM_VERSION} && \
     ln -s /opt/emsdk/node/* /opt/emsdk/node/node
 
 ENV PATH="/opt/emsdk:/opt/emsdk/upstream/emscripten:/opt/emsdk/node/node/bin:$PATH"
