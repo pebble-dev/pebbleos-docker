@@ -45,3 +45,8 @@ RUN git clone https://github.com/emscripten-core/emsdk.git /opt/emsdk --depth 1 
     ln -s /opt/emsdk/node/* /opt/emsdk/node/node
 
 ENV PATH="/opt/emsdk:/opt/emsdk/upstream/emscripten:/opt/emsdk/node/node/bin:$PATH"
+
+# Create Python virtual environment
+RUN python3 -m venv /opt/venv
+
+ENV PATH="/opt/venv/bin:$PATH"
