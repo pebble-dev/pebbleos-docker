@@ -19,6 +19,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && \
     apt-get install -y --no-install-recommends \
     clang \
+    doxygen \
     gcc \
     gcc-multilib \
     git \
