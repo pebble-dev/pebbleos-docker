@@ -19,7 +19,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && \
     apt-get install -y --no-install-recommends \
     clang \
-    doxygen \
     gcc \
     gcc-multilib \
     git \
@@ -30,6 +29,13 @@ RUN apt-get -y update && \
     xz-utils \
     wget \
     && rm -rf /var/lib/apt/lists/*
+
+# Install latest Doxygen
+# The version of Doxygen in Ubuntu's repos is old, and generates docs with missing functions
+RUN wget -O doxygen.tar.gz "https://www.doxygen.nl/files/doxygen-1.14.0.linux.bin.tar.gz" && \
+    tar xf doxygen.tar.gz && \
+    mv doxygen-1.14.0/bin/* /usr/bin/ && \
+    rm -r doxygen-1.14.0 doxygen.tar.gz
 
 # Install ARM GNU Toolchain
 RUN wget -O arm-gnu-toolchain.tar.xz "https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GNU_TOOLCHAIN_VERSION}/binrel/arm-gnu-toolchain-${ARM_GNU_TOOLCHAIN_VERSION}-${HOSTTYPE}-arm-none-eabi.tar.xz" && \
