@@ -18,11 +18,19 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install system-level dependencies
 RUN apt-get -y update && \
     apt-get install -y --no-install-recommends \
+    bison \
     clang \
+    flex \
     gcc \
     gcc-multilib \
+    gperf \
     git \
     gettext \
+    libfreetype6-dev \
+    libglib2.0-dev \
+    libgtk-3-dev \
+    libncurses-dev \
+    make \
     python3-dev \
     python3-pip \
     python3-venv \
