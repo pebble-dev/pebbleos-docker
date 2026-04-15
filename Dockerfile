@@ -30,6 +30,7 @@ RUN apt-get -y update && \
     libglib2.0-dev \
     libgtk-3-dev \
     libncurses-dev \
+    librsvg2-bin \
     make \
     python3-dev \
     python3-pip \
